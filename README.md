@@ -92,6 +92,8 @@ Procedure:
 
 PROGRAM :
 SR FLIPFLOP:
+
+
 PROGRAM 1
 ```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
@@ -111,13 +113,18 @@ endmodule
 ```
 RTL LOGIC FOR FLIPFLOPS
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/7d431d19-2d5c-4fc1-99e0-1825cdf7faf7)
+
+
 TIMING DIGRAMS FOR FLIP FLOPS
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/ff66125c-0eac-4b95-885d-bf31b7cc3830)
-```
-JK FLIPFLOP
-PROGRAM 2
 
+
+
+JK FLIPFLOP
+
+PROGRAM 2
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
+
 Developed by: Revathi.D
 RegisterNumber: 212221240045
 
@@ -134,10 +141,16 @@ endmodule
 ```
 RTL LOGIC FOR FLIPFLOPS
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/83b2c677-de23-46ca-b2a7-8a4aa5deab14)
+
+
 TIMING DIGRAMS FOR FLIP FLOPS
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/074829c1-d64c-45ac-bf9d-cf4d1983cab2)
+
+
 JK FLIPFLOP
 PROGRAM 2
+
+
 ```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
 Developed by:Revathi.D
@@ -154,13 +167,23 @@ nand(q,nand1_out,qbar,qbar);
 nand(qbar,nand2_out,q);
 endmodule
 ```
+
 RTL LOGIC FOR FLIPFLOPS
+
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/d70f18d1-5627-4091-aa06-d99e098e17d6)
+
+
 TIMING DIGRAMS FOR FLIP FLOPS
+
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/ce57e9d2-a3cc-4d97-a93b-6727297b82fb)
+
+
 D FLIPFLOP
+
 PROGRAM 3
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
+
 Developed by:Revathi.D
 RegisterNumber: 212221240045
 
@@ -178,12 +201,19 @@ nand(qbar,n1,q);
 endmodule
 ```
 RTL LOGIC FOR FLIPFLOPS
+
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/a307fd2a-457e-456c-9147-dad37b86554e)
+
 TIMING DIGRAMS FOR FLIP FLOPS
+
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/4268c477-dd96-44e1-96ee-a77c49911596)
+
 T FLIPFLOP
+
 PROGRAM 4
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
+
 Developed by:Revathi.D
 RegisterNumber: 212221240045
 ```
@@ -198,8 +228,11 @@ nand(qbar,n2,q);
 endmodule
 ```
 RTL LOGIC FOR FLIPFLOPS
+
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/2c50bff4-d883-4f9d-8be3-e84ff466d123)
+
 TIMING DIGRAMS FOR FLIP FLOPS
+
 ![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/dc246cd6-b86a-4ed9-8550-84757dd6f84d)
 
 RESULTS
