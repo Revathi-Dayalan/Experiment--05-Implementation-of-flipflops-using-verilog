@@ -91,109 +91,118 @@ Procedure:
 6.Give the respective inputs for timing diagram and obtain the results.
 
 PROGRAM :
-Program for flipflops and verify its truth table in quartus using Verilog programming.
+SR FLIPFLOP:
+PROGRAM 1
+```
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: Revathi.D
+RegisterNumber: 212221240045
 
-Developed by: Sabari Akash A
-
-RegisterNumber: 212222230124
-
-SR Flipflop
-module flipflop(s,r,Q,Qbar,clk);
+module sr (q,qbar,s,r,clk);
 input s,r,clk;
-output reg Q,Qbar;
-initial Q=0;
-initial Qbar=1;
-always @(posedge clk)
-begin
-Q=s|(Q&(~r));
-Qbar=r|(Qbar&(~s));
-end
-endmodule
-JK Flipflop
-module jkflipflop(k,clk,j,Q,Qbar);
-input k,clk,j;
-output reg Q;
-output reg Qbar;
-initial Q=0;
-initial Qbar=1;
-always @(posedge clk)
-begin
-Q=((~Q)&j)|(Q&~k);
-Qbar=(~Qbar&k)|(Qbar&~j);
-end
-endmodule
-D Flipflop
-module dflipflop(d,clk,q,qbar);
-input d,clk;
 output q,qbar;
-reg q,qbar;
-initial q=0;
-initial qbar=1;
-always @(posedge clk)
-begin 
-q<=d;
-qbar<=~d;
-end
+wire nand1_out;
+wire nand2_out;
+nand(nand1_out,clk,s);
+nand(nand2_out,clk,r);
+nand(q,nand1_out,qbar);
+nand(qbar,nand2_out,q);
 endmodule
-T Flipflop
-module tflipflop(t,clk,q,qbar);
+```
+RTL LOGIC FOR FLIPFLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/7d431d19-2d5c-4fc1-99e0-1825cdf7faf7)
+TIMING DIGRAMS FOR FLIP FLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/ff66125c-0eac-4b95-885d-bf31b7cc3830)
+```
+JK FLIPFLOP
+PROGRAM 2
+
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by: Revathi.D
+RegisterNumber: 212221240045
+
+module jk(q,qbar,k,j,clk);
+input j,k,clk;
+output q,qbar;
+wire nand1_out;
+wire nand2_out;
+nand(nand1_out,j,clk,qbar);
+nand(nand2_out,k,clk,q);
+nand(q,nand1_out,qbar,qbar);
+nand(qbar,nand2_out,q);
+endmodule
+```
+RTL LOGIC FOR FLIPFLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/83b2c677-de23-46ca-b2a7-8a4aa5deab14)
+TIMING DIGRAMS FOR FLIP FLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/074829c1-d64c-45ac-bf9d-cf4d1983cab2)
+JK FLIPFLOP
+PROGRAM 2
+```
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by:Revathi.D
+RegisterNumber: 212221240045 
+
+module jk(q,qbar,k,j,clk);
+input j,k,clk;
+output q,qbar;
+wire nand1_out;
+wire nand2_out;
+nand(nand1_out,j,clk,qbar);
+nand(nand2_out,k,clk,q);
+nand(q,nand1_out,qbar,qbar);
+nand(qbar,nand2_out,q);
+endmodule
+```
+RTL LOGIC FOR FLIPFLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/d70f18d1-5627-4091-aa06-d99e098e17d6)
+TIMING DIGRAMS FOR FLIP FLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/ce57e9d2-a3cc-4d97-a93b-6727297b82fb)
+D FLIPFLOP
+PROGRAM 3
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by:Revathi.D
+RegisterNumber: 212221240045
+
+```
+module d(q,qbar,d1,clk);
+input d1,clk;
+output q,qbar;
+wire n1;
+wire n2;
+not(x,d1);
+nand(n1,clk,d1);
+nand(n2,clk,x);
+nand(q,n2,qbar);
+nand(qbar,n1,q);
+endmodule
+```
+RTL LOGIC FOR FLIPFLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/a307fd2a-457e-456c-9147-dad37b86554e)
+TIMING DIGRAMS FOR FLIP FLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/4268c477-dd96-44e1-96ee-a77c49911596)
+T FLIPFLOP
+PROGRAM 4
+Program for flipflops  and verify its truth table in quartus using Verilog programming.
+Developed by:Revathi.D
+RegisterNumber: 212221240045
+```
+module tff(t,qbar,q,clk);
 input t,clk;
 output q,qbar;
-reg q,qbar;
-initial q=0;
-initial qbar=0;
-always @(posedge clk)
-begin 
-q<=(t&~q)|(~t&q);
-qbar<=~q;
-end
+wire n1,n2;
+nand(n1,t,clk,qbar);
+nand(n2,clk,t,q);
+nand(q,n1,qbar);
+nand(qbar,n2,q);
 endmodule
-RTL LOGIC FOR SR FLIPFLOPS
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/93ee2a90-fcfd-4583-a612-ce679561bbe3)
-
-
-RTL LOGIC FOR JK FLIPFLOPS
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/5a566c52-4003-4b5e-846b-e6d95847c261)
-
-
-RTL LOGIC FOR D FLIPFLOPS
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/6d600d07-cb6a-44dd-bea7-c46e31f2fb73)
-
-
-RTL LOGIC FOR T FLIPFLOPS:
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/0a082ce5-7c16-496a-9eef-ed70a83b3930)
-
-
-Waveform Output For SR:
-Screenshot 2023-09-15 093155
-
-Waveform Output For JK:
-image
-
-Waveform Output For D:
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/243740ba-da35-4866-a8c8-584869d3a6d5)
-
-
-Waveform Output For T:
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/9905ca30-000a-4518-b5c6-bae3c662aa54)
-
-
-Truth table For SR:
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/9aeeb60a-efbb-42d8-ad28-d3a8088ca12a)
-
-
-Truth table For JK:
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/a4a4a815-62d9-470f-b59c-44b0c6bfdbf4)
-
-
-Truth table for D:
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/ba95da91-fbd9-4050-805b-cfc1a63b1bf2)
-
-
-Truth table for T:
-![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/738cba17-7c8e-4312-a479-0cc22c9a38d5)
-
+```
+RTL LOGIC FOR FLIPFLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/2c50bff4-d883-4f9d-8be3-e84ff466d123)
+TIMING DIGRAMS FOR FLIP FLOPS
+![image](https://github.com/Revathi-Dayalan/Experiment--05-Implementation-of-flipflops-using-verilog/assets/96000574/dc246cd6-b86a-4ed9-8550-84757dd6f84d)
 
 RESULTS
-Thus the flipflops circuits are designed and the truth tables is verified using quartus software.
+Thus implementation of SR,JK,D and T flipflops using nand gates are done sucessfully.
+
 
